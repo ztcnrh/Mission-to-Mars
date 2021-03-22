@@ -38,7 +38,8 @@
                     <span style="font-style:italic">Look again at that dot. That's here. That's home. That's us.</span> -- <span style="font-style:italic">Pale Blue Dot</span>, Carl Sagan
                 </p>
                 <hr class="my-4">
-                <p>It will not be fun at the beginning, but one day we will make Mars our second home.</p>
+                <p>Carl Sagan in 1994: <span style="font-style:italic">The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate...</span></p>
+                <p>Elon Musk in 2019: <span style="font-style:italic">This is not true. This is false. <a href="https://nexter.org/wp-content/uploads/2019/02/elon-musk-mars-twitter-flirt-pic11.jpg" target="_blank">Mars</a>.</span></p>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
                 </p>
@@ -48,7 +49,7 @@
             <div class="row">
                 <div class="col">
                     <h2>Latest Mars News</h2>
-                    <h4><a href='{{ data.news_link }}'>{{ data.news_title }}</a></h4>
+                    <h4><a href="{{ data.news_link }}">{{ data.news_title }}</a></h4>
                     <p>{{ data.news_p }}</p>
                     <hr>
                     <br>
@@ -64,7 +65,7 @@
                 </div>
                 <!-- Facts Table -->
                 <div class="col">
-                    <!-- col-sm-6 col-md-5 col-lg-4 -->
+                    
                     <h4>Mars Facts</h4>
                     <table border="1" class="table">
                         <thead>
