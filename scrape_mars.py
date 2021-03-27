@@ -62,10 +62,22 @@ def scrape():
     df = df.rename(columns={0: 'Attributes', 1: 'Facts'})
 
     # Convert the dataframe to html
-    df.to_html('table.html', index=False, justify='left')
+    # df.to_html('table.html', index=False, justify='left')
 
-    # Note: We will copy the converted table.html into index.html to display the facts table
-    # so we will not update the mars_data dictionary
+    # Store df row information into a list of dictionaries
+    mars_facts = []
+
+    for index, row in df.iterrows():
+        mars_facts.append(
+            {'attribute': row['Attributes'],
+            'fact': row['Facts']
+            }
+        )
+
+    # Update dict
+    mars_data['mars_facts'] = mars_facts
+
+    # Note: we will not be using the "table.html" file. That is only for reference purpose.
 
     print('-------------')
     print('Mars facts table scrape completed...')
@@ -130,7 +142,6 @@ def scrape():
 
     # Return results
     return mars_data
-
 
 
 # For testing purposes:
