@@ -10,10 +10,28 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 
 @app.route("/")
 def index():
+
     # Find all records of data from the mongo database
     mars_data = mongo.db.mission_to_mars.find_one()
-    # Return template and data
-    return render_template("index.html", data=mars_data)
+
+    # Bulid a conditional to return a default value before data is scraped:
+    if mars_data == None:
+        return render_template("index.html", data={
+            'news_title': 'Clip the above Scrape button to get the latest news',
+            'news_p': '',
+            'news_link': '#',
+            'featured_image_url': '',
+            'mars_facts': '',
+            'hemisphere_image_urls': [
+                {'title': 'Scrape to get the image', 'image_url': ''},
+                {'title': 'Scrape to get the image', 'image_url': ''},
+                {'title': 'Scrape to get the image', 'image_url': ''},
+                {'title': 'Scrape to get the image', 'image_url': ''}]
+            })
+    # If we already have data...
+    else:
+        # Return template and the scraped data
+        return render_template("index.html", data=mars_data)
 
 
 @app.route("/scrape")
