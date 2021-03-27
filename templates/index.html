@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col">
                     <h2>Latest Mars News</h2>
-                    <h4><a href="{{ data.news_link }}">{{ data.news_title }}</a></h4>
+                    <h4><a href="{{ data.news_link }}" target="_blank">{{ data.news_title }}</a></h4>
                     <p>{{ data.news_p }}</p>
                     <hr>
                     <br>
@@ -66,52 +66,22 @@
                 <!-- Facts Table -->
                 <div class="col">
                     
-                    <h4>Mars Facts</h4>
+                    <h4>Mars Facts - <small><em>Scrape to return a list of Mars facts!</em></small></h4>
                     <table border="1" class="table">
-                        <thead>
-                          <tr style="text-align: left;">
-                            <th>Attributes</th>
-                            <th>Facts</th>
-                          </tr>
-                        </thead>
-                        <tbody style="text-align: left;">
+                      <thead>
+                        <tr style="text-align: left;">
+                          <th>Attributes</th>
+                          <th>Facts</th>
+                        </tr>
+                      </thead>
+                      <tbody style="text-align: left;">
+                          {% for fact in data.mars_facts %}
                           <tr>
-                            <td>Equatorial Diameter:</td>
-                            <td>6,792 km</td>
+                            <td>{{ fact.attribute }}</td>
+                            <td>{{ fact.fact }}</td>
                           </tr>
-                          <tr>
-                            <td>Polar Diameter:</td>
-                            <td>6,752 km</td>
-                          </tr>
-                          <tr>
-                            <td>Mass:</td>
-                            <td>6.39 × 10^23 kg (0.11 Earths)</td>
-                          </tr>
-                          <tr>
-                            <td>Moons:</td>
-                            <td>2 (Phobos &amp; Deimos)</td>
-                          </tr>
-                          <tr>
-                            <td>Orbit Distance:</td>
-                            <td>227,943,824 km (1.38 AU)</td>
-                          </tr>
-                          <tr>
-                            <td>Orbit Period:</td>
-                            <td>687 days (1.9 years)</td>
-                          </tr>
-                          <tr>
-                            <td>Surface Temperature:</td>
-                            <td>-87 to -5 °C</td>
-                          </tr>
-                          <tr>
-                            <td>First Record:</td>
-                            <td>2nd millennium BC</td>
-                          </tr>
-                          <tr>
-                            <td>Recorded By:</td>
-                            <td>Egyptian astronomers</td>
-                          </tr>
-                        </tbody>
+                          {% endfor %}
+                      </tbody>
                     </table>
                 </div>
             </div>
@@ -129,7 +99,7 @@
                         <div class="card mb-3">
                             <img style="padding:5px;" class="card-img-top" 
                             src="{{ data.hemisphere_image_urls[0].image_url }}" 
-                            alt="Mar Hemisphere Image - {{ data.hemisphere_image_urls[0].title }}">
+                            alt="Mar Hemisphere Image - 1">
                             <div class="card-body">
                             <h4 class="card-title">{{ data.hemisphere_image_urls[0].title }}</h5>
                             </div>
@@ -139,7 +109,7 @@
                         <div class="card mb-3">
                             <img style="padding:5px;" class="card-img-top" 
                             src="{{ data.hemisphere_image_urls[1].image_url }}" 
-                            alt="Mar Hemisphere Image - {{ data.hemisphere_image_urls[1].title }}">
+                            alt="Mar Hemisphere Image - 2">
                             <div class="card-body">
                             <h4 class="card-title">{{ data.hemisphere_image_urls[1].title }}</h5>
                             </div>
@@ -149,7 +119,7 @@
                         <div class="card mb-3">
                             <img style="padding:5px;" class="card-img-top" 
                             src="{{ data.hemisphere_image_urls[2].image_url }}" 
-                            alt="Mar Hemisphere Image - {{ data.hemisphere_image_urls[2].title }}">
+                            alt="Mar Hemisphere Image - 3">
                             <div class="card-body">
                             <h4 class="card-title">{{ data.hemisphere_image_urls[2].title }}</h5>
                             </div>
@@ -159,7 +129,7 @@
                         <div class="card mb-3">
                             <img style="padding:5px;" class="card-img-top" 
                             src="{{ data.hemisphere_image_urls[2].image_url }}" 
-                            alt="Mar Hemisphere Image - {{ data.hemisphere_image_urls[2].title }}">
+                            alt="Mar Hemisphere Image - 4">
                             <div class="card-body">
                             <h4 class="card-title">{{ data.hemisphere_image_urls[2].title }}</h5>
                             </div>
