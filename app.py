@@ -17,7 +17,7 @@ def index():
     # Bulid a conditional to return a default value before data is scraped:
     if mars_data == None:
         return render_template("index.html", data={
-            'news_title': 'Clip the above Scrape button to get the latest news',
+            'news_title': 'Clik the above Scrape button to get the latest news',
             'news_p': '',
             'news_link': '#',
             'featured_image_url': '',
