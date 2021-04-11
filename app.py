@@ -40,7 +40,7 @@ def scraper():
     # Run the scrape function
     scraped_data = scrape_mars.scrape()
     # Update the Mongo database using the data scraped
-    mongo.db.mission_to_mars.update({}, scraped_data, upsert=True)
+    mars_data.update({}, scraped_data, upsert=True)
     # Redirect back to home page
     return redirect("/")
 
